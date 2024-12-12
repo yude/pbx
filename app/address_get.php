@@ -2,6 +2,9 @@
 
 <?php
 
+// Originally made by 108jiminy https://github.com/108jiminy
+// Licensed under the MIT license
+
 use MikoPBX\Core\Asterisk\AGI;
 require_once 'Globals.php';
 
