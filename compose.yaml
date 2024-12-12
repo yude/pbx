@@ -1,7 +1,5 @@
 services:
   mikopbx:
-    container_name: "mikopbx"
-#    image: "ghcr.io/mikopbx/mikopbx-x86-64"
     build: .
     network_mode: "host"
     cap_add:
@@ -15,8 +13,6 @@ services:
     tty: true
     restart: always
     environment:
-      - ID_WWW_USER=${ID_WWW_USER}
-      - ID_WWW_GROUP=${ID_WWW_GROUP}
       # Change the station name through environment variables
       - PBX_NAME=MikoPBX-in-Docker
       # Change the default SSH port to 23
