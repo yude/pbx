@@ -10,6 +10,7 @@ services:
       - /var/spool/mikopbx/cf:/cf
       - /var/spool/mikopbx/storage:/storage
       - /html/fax:/mikopbx/fax_files
+      - ./music:/mikopbx/music
     tty: true
     restart: always
     environment:
