@@ -4,6 +4,7 @@
 # timerCall.sh
 # Originally made by 108jiminy https://github.com/108jiminy/
 # Licensed under the MIT license
+#
 
 hhmm=$2
 
@@ -38,7 +39,7 @@ MaxRetries: 3
 RetryTime: 60
 WaitTime: 60
 Context: applications
-Extension: 9400
+Extension: 0306
 Priority: 2
 EOF
 

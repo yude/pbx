@@ -1,9 +1,10 @@
 #!/bin/bash
 
 #
-# timerCall.sh
+# timerCron.sh
 # Originally made by 108jiminy https://github.com/108jiminy/
 # Licensed under the MIT license
+#
 
 call_dir="/root/application/call/"
 outgoing_dir="/storage/usbdisk1/mikopbx/astspool/outgoing/"
