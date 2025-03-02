@@ -42,12 +42,14 @@ RUN rm -rf ffmpeg
 
 # Install yt-dlp
 WORKDIR /work
-RUN curl -Is https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux | grep Location | sed -e "s/Location: //g" | sed -e 's/\r//g' > url.txt
-RUN xargs -n 1 curl -Is < url.txt | grep "Location: " | sed -e "s/Location: //g" | sed -e 's/\r//g' > url2.txt
-RUN xargs -n 1 curl -o yt-dlp < url2.txt
+RUN curl -L -o yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux
 RUN chmod +x yt-dlp
 RUN cp yt-dlp /usr/bin/
-RUN rm *.txt yt-dlp
 
-# Installing my117
+# Install my117
 COPY --from=my117-builder /work/my117/target/release/my117 /usr/local/bin/
+
+# Install pip and required modules
+RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
+    python get-pip.py
+RUN pip install requests asterisk wikidata pyst

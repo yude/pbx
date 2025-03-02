@@ -11,6 +11,7 @@ services:
       - /html/fax:/mikopbx/fax_files
       - ./music:/mikopbx/music
       - ./tools:/tools
+      - ./zunda-please-wait.wav:/offload/asterisk/sounds/ja-jp/zunda-please-wait.wav
     tty: true
     restart: always
     environment:
