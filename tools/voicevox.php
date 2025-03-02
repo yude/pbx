@@ -100,9 +100,9 @@ $agi->verbose('Playing converted audio file...');
 $agi->stream_file(str_replace(".wav", "", basename($converted_audio_file)));
 
 // 一時ファイルを削除する
-// $agi->verbose('Cleaning up temporary files...');
-// unlink($temp_audio_file);
-// unlink($converted_audio_file);
+$agi->verbose('Cleaning up temporary files...');
+unlink($temp_audio_file);
+unlink($converted_audio_file);
 
 $agi->verbose('Hanging up...');
 $agi->hangup();
