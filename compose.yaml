@@ -5,17 +5,17 @@ services:
     cap_add:
       - NET_ADMIN
     entrypoint: "/sbin/docker-entrypoint"
-    hostname:  "mikopbx-in-a-docker"
     volumes:
       - /var/spool/mikopbx/cf:/cf
       - /var/spool/mikopbx/storage:/storage
       - /html/fax:/mikopbx/fax_files
       - ./music:/mikopbx/music
+      - ./tools:/tools
     tty: true
     restart: always
     environment:
       # Change the station name through environment variables
-      - PBX_NAME=MikoPBX-in-Docker
+      - PBX_NAME=yudejp
       # Change the default SSH port to 23
       - SSH_PORT=23
       # Change the default WEB port to 8080
