@@ -23,3 +23,23 @@ services:
       - WEB_PORT=8080
       # Change the default WEB HTTPS port to 8443
       - WEB_HTTPS_PORT=8443
+  tripd:
+    image: ghcr.io/tkytel/tripd:latest
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: "./tripd/config.toml"
+        target: "/app/config.toml"
+    environment:
+      TZ: Asia/Tokyo
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    user: root
+    restart: always
+    command: tunnel --no-autoupdate run --token $CLOUDFLARED_TOKEN
+    network_mode: host
