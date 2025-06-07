@@ -1,0 +1,3 @@
+.env
+tripd/config.toml
+tripd/tripd
